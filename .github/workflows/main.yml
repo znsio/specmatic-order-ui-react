@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: 18.x
     - name: npm install
-      run: npm install
+      run: npm ci
       working-directory: main
     - name: Run UI Component Test
       run: npm test
