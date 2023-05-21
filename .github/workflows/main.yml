@@ -25,5 +25,5 @@ jobs:
       run: npm ci
       working-directory: main
     - name: Run UI Component Test
-      run: npm test
+      run: CI=true npm test
       working-directory: main
