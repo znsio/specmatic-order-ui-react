@@ -26,6 +26,6 @@ test('renders gadgets list', async () => {
   expect(screen.getByText(/Headphone/)).toBeInTheDocument;
 });
 
-afterAll(() => {
-  stopStub(stub);
-});
+afterAll(async () => {
+  await stopStub(stub);
+}, 2000);
