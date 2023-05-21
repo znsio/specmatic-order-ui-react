@@ -1,0 +1,23 @@
+{
+    "http-request": {
+        "path": "/findAvailableProducts",
+        "method": "GET",
+        "query": {
+            "type": "gadget"
+        }
+    },
+    "http-response": {
+        "status": 200,
+        "body": [
+            {
+                "name": "Mobile",
+                "id": 559
+            },
+            {
+                "name": "Headphone",
+                "id": 2
+            }
+        ],
+        "status-text": "OK"
+    }
+}
