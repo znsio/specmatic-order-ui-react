@@ -20,7 +20,7 @@ beforeAll(async () => {
 
 test('renders gadgets list', async () => {
   //Arrange
-  //await setExpectations('src/__test__/' + GADGET_LIST_EXPECTATION_FILE);
+  await setExpectations('src/__test__/' + GADGET_LIST_EXPECTATION_FILE);
   process.env.REACT_APP_API_URL=STUB_URL
 
   //Act
