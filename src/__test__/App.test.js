@@ -1,10 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import App from '../App';
-import { 
-  startStub,
-  stopStub,
-  setExpectations
-} from 'specmatic';
+import { startStub, stopStub, setExpectations } from 'specmatic';
 let jp = require('jsonpath');
 
 const GADGET_LIST_EXPECTATION_FILE = "specmatic-expectations/gadget_list.json";
@@ -14,6 +10,7 @@ const gadgetList = jp.query(gadgetListExpectationObject, '$..body[*]');
 const STUB_HOST = "localhost";
 const STUB_PORT = 9000;
 const STUB_URL = "http://" + STUB_HOST + ":" + STUB_PORT;
+jest.setTimeout(10000)
 
 let stub;
 
