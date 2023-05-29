@@ -17,10 +17,10 @@ jobs:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '17'
         java-package: 'jre'
-    - name: Use Node.js 18/x
+    - name: Use Node.js 16/x
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: 16.x
     - name: npm install
       run: npm ci
       working-directory: main
