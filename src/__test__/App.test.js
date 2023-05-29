@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import 'core-js';
 import App from '../App';
 import { startStub, stopStub, setExpectations } from 'specmatic';
 let jp = require('jsonpath');
