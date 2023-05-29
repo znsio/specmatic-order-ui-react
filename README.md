@@ -5,4 +5,4 @@ This project demonstrates stubbing APIs with Specmatic by leveraging their OpenA
 ```npm start```
 
 ## Running UI Component Tests
-```npm test```
+```npm test``` 
