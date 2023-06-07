@@ -13,8 +13,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "specmatic": "^0.67.6",
-    "jsonpath": "^1.1.1"
+    "jsonpath": "^1.1.1",
+    "specmatic": "^0.68.3"
   },
   "scripts": {
     "start": "react-scripts start ",

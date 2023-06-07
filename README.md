@@ -6,3 +6,9 @@ This project demonstrates stubbing APIs with Specmatic by leveraging their OpenA
 
 ## Running UI Component Tests
 ```npm test``` 
+
+## FAQs
+
+### 1. Error `ReferenceError: setImmediate is not defined`
+
+This happens due to an issue in Jest. The easiest solution is to import `core-js` in the affected test file.
