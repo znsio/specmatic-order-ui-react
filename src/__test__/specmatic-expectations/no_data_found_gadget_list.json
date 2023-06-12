@@ -3,7 +3,7 @@
         "path": "/findAvailableProducts",
         "method": "GET",
         "query": {
-            "type": "headphne"
+            "type": "headphone"
         }
     },
     "http-response": {

@@ -47,7 +47,7 @@ test('Empty Product List', async () => {
   process.env.REACT_APP_API_URL=STUB_URL
 
   //Act
-  render(<App type="headphne" />);
+  render(<App type="headphone" />);
 
   //Assert
   await waitFor(() => {
