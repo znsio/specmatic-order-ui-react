@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
+const type = 'headphne';
 class App extends Component {
     state = {
         products: []
     };
 
     componentDidMount() {
-        axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=gadget").then(response => {
-            this.setState({ products: response.data });
+        axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + this.props.type).then(response => {
+            return (
+                this.setState({ products: response.data })
+            )
         });
     }
 
@@ -20,10 +24,10 @@ class App extends Component {
                     {this.state.products.map(product => (
                         <li key={product.id}>
                             <p>
-                              Product name
+                                Product name
                             </p>
                             <p>
-                              {product.name}
+                                {product.name}
                             </p>
                         </li>
                     ))}
