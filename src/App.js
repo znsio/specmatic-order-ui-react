@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
-const type = 'headphne';
 class App extends Component {
     state = {
         products: []
