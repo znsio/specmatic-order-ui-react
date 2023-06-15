@@ -9,7 +9,6 @@ const EMPTY_GADGET_LIST_EXPECTATION_FILE="specmatic-expectations/no_data_found_g
 const gadgetListExpectationObject = require('./' + GADGET_LIST_EXPECTATION_FILE);
 const emptyGadgetListObject= require('./'+EMPTY_GADGET_LIST_EXPECTATION_FILE);
 const gadgetList = jp.query(gadgetListExpectationObject, '$..body[*]');
-const emptyGadgetList=jp.query(emptyGadgetListObject,'$..body[*]')
 
 const STUB_HOST = "localhost";
 const STUB_PORT = 9000;
@@ -54,9 +53,6 @@ test('Empty Product List', async () => {
     expect(screen.getByText("No Products found")).toBeInTheDocument();
   })
 
-  emptyGadgetList.map(gadget => gadget.name).forEach((gadgetName) => {
-    expect(screen.getByText(gadgetName)).toBeInTheDocument();
-  });
 });
 
 afterAll(() => {
