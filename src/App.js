@@ -15,21 +15,23 @@ class App extends Component {
     }
 
     render() {
+        const { products } = this.state;
+        
         return (
             <div>
                 <h1>Gadgets</h1>
-                <ul>
-                    {this.state.products.map(product => (
-                        <li key={product.id}>
-                            <p>
-                                Product name
-                            </p>
-                            <p>
-                                {product.name}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
+                {products.length === 0 ? (
+                    <p>No Products found</p>
+                ) : (
+                    <ul>
+                        {products.map((product) => (
+                            <li key={product.id}>
+                                <p>Product name</p>
+                                <p>{product.name}</p>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         );
     }

@@ -51,7 +51,7 @@ test('Empty Product List', async () => {
 
   //Assert
   await waitFor(() => {
-    expect(0).toBe(0);
+    expect(screen.getByText("No Products found")).toBeInTheDocument();
   })
 
   emptyGadgetList.map(gadget => gadget.name).forEach((gadgetName) => {
