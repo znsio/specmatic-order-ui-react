@@ -1,22 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 
-class App extends Component {
-    state = {
-        products: []
-    };
-
-    componentDidMount() {
-        axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + this.props.type).then(response => {
-            return (
-                this.setState({ products: response.data })
-            )
-        });
-    }
-
-    render() {
-        const { products } = this.state;
-        
+const App = ({type})=>{
+    const [products, setProducts] = useState([])
+        useEffect(() => {
+            axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + type).then(response => {
+                return (
+                  setProducts( response.data )
+                ),100
+            });
+        }, [])
         return (
             <div>
                 <h1>Gadgets</h1>
@@ -35,6 +28,6 @@ class App extends Component {
             </div>
         );
     }
-}
+//}
 
 export default App;
