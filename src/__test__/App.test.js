@@ -6,8 +6,8 @@ let jp = require('jsonpath');
 
 const GADGET_LIST_EXPECTATION_FILE = "specmatic-expectations/gadget_list.json";
 const EMPTY_GADGET_LIST_EXPECTATION_FILE="specmatic-expectations/no_data_found_gadget_list.json";
+const TIMEOUT_EXPECTATION_FILE="specmatic-expectations/timeout.json"
 const gadgetListExpectationObject = require('./' + GADGET_LIST_EXPECTATION_FILE);
-const emptyGadgetListObject= require('./'+EMPTY_GADGET_LIST_EXPECTATION_FILE);
 const gadgetList = jp.query(gadgetListExpectationObject, '$..body[*]');
 
 const STUB_HOST = "localhost";
@@ -32,7 +32,7 @@ test('renders gadgets list', async () => {
   //Assert
   await waitFor(() => {
     expect(screen.getAllByText("Product name").length).toBe(gadgetList.length);
-  })
+  },{timeout: 5000})
 
   gadgetList.map(gadget => gadget.name).forEach((gadgetName) => {
     expect(screen.getByText(gadgetName)).toBeInTheDocument();
@@ -51,7 +51,24 @@ test('Empty Product List', async () => {
   //Assert
   await waitFor(() => {
     expect(screen.getByText("No Products found")).toBeInTheDocument();
-  })
+  },{timeout: 5000})
+
+});
+
+
+test('timeout error', async () => {
+  //Arrange
+
+  await setExpectations('src/__test__/'+TIMEOUT_EXPECTATION_FILE);
+  process.env.REACT_APP_API_URL=STUB_URL
+
+  //Act
+  render(<App type="bike" />);
+
+  //Assert
+  await waitFor(() => {
+    expect(screen.getByText("oops! Timeout")).toBeInTheDocument();
+  },{timeout: 5000})
 
 });
 
