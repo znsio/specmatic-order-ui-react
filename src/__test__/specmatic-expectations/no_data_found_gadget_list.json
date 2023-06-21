@@ -1,0 +1,14 @@
+{
+    "http-request": {
+        "path": "/findAvailableProducts",
+        "method": "GET",
+        "query": {
+            "type": "headphone"
+        }
+    },
+    "http-response": {
+        "status": 200,
+        "body": [],
+        "status-text": "OK"
+    }
+}
