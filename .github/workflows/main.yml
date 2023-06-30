@@ -39,5 +39,5 @@ jobs:
         run: npm ci
         working-directory: main
       - name: Run UI Component Test
-        run: CI=true npm test
+        run: npm test -- --watchAll=false
         working-directory: main
