@@ -11,11 +11,15 @@
         "body": [
             {
                 "name": "Mobile",
-                "id": 559
+                "id": 559,
+                "type": "gadget",
+                "inventory": 10
             },
             {
                 "name": "Headphone",
-                "id": 2
+                "id": 2,
+                "type": "gadget",
+                "inventory": 5
             }
         ],
         "status-text": "OK"

@@ -10,12 +10,16 @@
         "status": 200,
         "body": [
             {
-                "name": "Mobile",
-                "id": 559
+                "name": "Hero",
+                "id": 559,
+                "type": "bike",
+                "inventory": 10
             },
             {
-                "name": "Headphone",
-                "id": 2
+                "name": "Bajaj",
+                "id": 2,
+                "type": "bike",
+                "inventory": 5
             }
         ],
         "status-text": "OK"
