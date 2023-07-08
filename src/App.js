@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import axios from "axios";
+import React, { Component, useEffect, useState } from "react"
+import axios from "axios"
 
 const App = ({ type }) => {
     const [products, setProducts] = useState([])
@@ -7,13 +7,13 @@ const App = ({ type }) => {
     useEffect(() => {
         const apiCal = async () => {
             try {
-                const response = await axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + type, { timeout: 4000 })
+                const response = await axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + type, { timeout: 1000 })
                 setProducts(response.data)
             } catch {
-                setError('oops! Timeout')
+                setError('Timeout! Please try again...')
             }
         }
-        apiCal();
+        apiCal()
     }, [])
     return (
         <div>
@@ -37,7 +37,7 @@ const App = ({ type }) => {
             ) : (error)
             }
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
