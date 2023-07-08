@@ -1,6 +1,9 @@
 # React Jest UI Component Testing with Specmatic
 This project demonstrates stubbing APIs with Specmatic by leveraging their OpenAPI sepcifications in Jest UI Component Tests.
 
+## Install dependencies
+```npm install```
+
 ## Running the app
 ```npm start```
 
