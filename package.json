@@ -15,7 +15,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "jsonpath": "^1.1.1",
-    "specmatic": "^0.72.2"
+    "specmatic": "^0.72.12"
   },
   "scripts": {
     "start": "react-scripts start ",
