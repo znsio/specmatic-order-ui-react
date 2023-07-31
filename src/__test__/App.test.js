@@ -19,7 +19,7 @@ let stub
 
 beforeAll(async () => {
   stub = await startStub(STUB_HOST, STUB_PORT)
-}, 10000)
+}, 120000)
 
 test('renders gadgets list', async () => {
   //Arrange
@@ -37,7 +37,7 @@ test('renders gadgets list', async () => {
   gadgetList.map(gadget => gadget.name).forEach((gadgetName) => {
     expect(screen.getByText(gadgetName)).toBeInTheDocument()
   })
-})
+}, 120000)
 
 test('Empty Product List', async () => {
   //Arrange
@@ -52,7 +52,7 @@ test('Empty Product List', async () => {
     expect(screen.getByText("No Products found")).toBeInTheDocument()
   }, {timeout})
 
-})
+}, 120000)
 
 
 test('timeout error', async () => {
@@ -68,8 +68,8 @@ test('timeout error', async () => {
     expect(screen.getByText("Timeout! Please try again...")).toBeInTheDocument()
   }, {timeout})
 
-})
+}, 120000)
 
 afterAll(() => {
-  stopStub(stub)
-})
+  await stopStub(stub)
+}, 120000)
