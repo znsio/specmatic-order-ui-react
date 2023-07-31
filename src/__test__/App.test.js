@@ -70,6 +70,6 @@ test('timeout error', async () => {
 
 }, 120000)
 
-afterAll(() => {
+afterAll(async () => {
   await stopStub(stub)
 }, 120000)
