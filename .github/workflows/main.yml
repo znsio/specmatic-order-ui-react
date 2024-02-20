@@ -8,7 +8,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
         # Node 18.x needs for ipv6 entry modification in hosts file and how do it on widnows is not clear
         # due to permissions required etc
@@ -31,7 +31,7 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           java-package: 'jre'
-      - name: Use Node.js 16/x
+      - name: Use Node.js 18/x
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
