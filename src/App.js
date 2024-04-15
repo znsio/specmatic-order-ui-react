@@ -5,7 +5,7 @@ const App = ({ type }) => {
     const [products, setProducts] = useState([])
     const [error, setError] = useState('')
     useEffect(() => {
-        const apiCal = async () => {
+        const apiCall = async () => {
             try {
                 const response = await axios.get(process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + type, { timeout: 1000 })
                 setProducts(response.data)
@@ -13,7 +13,7 @@ const App = ({ type }) => {
                 setError('Timeout! Please try again...')
             }
         }
-        apiCal()
+        apiCall()
     }, [])
     return (
         <div>
