@@ -32,8 +32,8 @@ test('renders gadgets list', async () => {
   //Assert
   await waitFor(() => {
     expect(screen.getAllByText("Product name").length).toBe(gadgetList.length)
-    }, {timeout})
-
+  }, { timeout })
+  
   gadgetList.map(gadget => gadget.name).forEach((gadgetName) => {
     expect(screen.getByText(gadgetName)).toBeInTheDocument()
   })

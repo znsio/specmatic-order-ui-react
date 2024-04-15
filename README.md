@@ -10,6 +10,10 @@ This project demonstrates stubbing APIs with Specmatic by leveraging their OpenA
 ## Running UI Component Tests
 ```npm test``` 
 
+## Updating the stub expectations
+https://specmatic.in/documentation/test_data_format.html 
+Refer to this in order to understand how to update the stub.
+
 ## FAQs
 
 ### 1. Error `ReferenceError: setImmediate is not defined`

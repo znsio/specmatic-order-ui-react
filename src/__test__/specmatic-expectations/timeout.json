@@ -2,6 +2,9 @@
     "http-request": {
         "path": "/findAvailableProducts",
         "method": "GET",
+        "headers": {
+            "pageSize": "(number)"
+        },
         "query": {
             "type": "bike"
         }
