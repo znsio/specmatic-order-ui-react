@@ -8,7 +8,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
         # Node 18.x needs for ipv6 entry modification in hosts file and how do it on widnows is not clear
         # due to permissions required etc
@@ -22,16 +22,16 @@ jobs:
       # https://stackoverflow.com/questions/72648487/node-js-16-17-changed-resolution-of-localhost
       - run: ${{ !startsWith(matrix.os, 'ubuntu') }} || sudo sed -i '/localhost/c\127.0.0.1 localhost' /etc/hosts
       - run: ${{ !startsWith(matrix.os, 'macos') }} || sudo sed -i '' -e 's/.*localhost.*/127.0.0.1 localhost/g' /etc/hosts
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: main
       - name: Set up JRE 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           java-package: 'jre'
-      - name: Use Node.js 16/x
+      - name: Use Node.js 18/x
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
