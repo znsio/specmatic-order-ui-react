@@ -44,7 +44,7 @@ jobs:
       - name: Install Specmatic Insights Github Build Reporter
         run: npm install -g specmatic-insights-github-build-reporter
       - name: Run Specmatic Insights Github Build Reporter
-        working-directory: .
+        working-directory: main
         run: |
           npx specmatic-insights-github-build-reporter --specmatic-insights-host https://20d4-103-163-106-75.ngrok-free.app --specmatic-stub-usage ./build/reports/specmatic/stub_usage_report.json
         env:
