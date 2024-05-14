@@ -23,8 +23,7 @@ jobs:
       - run: ${{ !startsWith(matrix.os, 'ubuntu') }} || sudo sed -i '/localhost/c\127.0.0.1 localhost' /etc/hosts
       - run: ${{ !startsWith(matrix.os, 'macos') }} || sudo sed -i '' -e 's/.*localhost.*/127.0.0.1 localhost/g' /etc/hosts
       - uses: actions/checkout@v4
-        with:
-          path: main
+        with: { fetch-depth: 0 }
       - name: Set up JRE 17
         uses: actions/setup-java@v4
         with:
@@ -37,14 +36,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: npm ci
-        working-directory: main
+        working-directory: specmatic-order-ui-react
       - name: Run UI Component Test
         run: npm test -- --watchAll=false
-        working-directory: main
+        working-directory: specmatic-order-ui-react
       - name: Install Specmatic Insights Github Build Reporter
         run: npm install -g specmatic-insights-github-build-reporter
       - name: Run Specmatic Insights Github Build Reporter
-        working-directory: main
+        working-directory: specmatic-order-ui-react
         run: |
           npx specmatic-insights-github-build-reporter --specmatic-insights-host https://20d4-103-163-106-75.ngrok-free.app --specmatic-stub-usage ./build/reports/specmatic/stub_usage_report.json
         env:
