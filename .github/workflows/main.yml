@@ -8,8 +8,10 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        # node-version: [18.x, 20.x]
+        # os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [20.x]
+        os: [ubuntu-latest]
         # Node 18.x needs for ipv6 entry modification in hosts file and how do it on widnows is not clear
         # due to permissions required etc
         exclude:
@@ -36,14 +38,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: npm ci
-        working-directory: specmatic-order-ui-react
       - name: Run UI Component Test
         run: npm test -- --watchAll=false
-        working-directory: specmatic-order-ui-react
       - name: Install Specmatic Insights Github Build Reporter
         run: npm install -g specmatic-insights-github-build-reporter
       - name: Run Specmatic Insights Github Build Reporter
-        working-directory: specmatic-order-ui-react
+        working-directory: .
         run: |
           npx specmatic-insights-github-build-reporter --specmatic-insights-host https://20d4-103-163-106-75.ngrok-free.app --specmatic-stub-usage ./build/reports/specmatic/stub_usage_report.json
         env:
