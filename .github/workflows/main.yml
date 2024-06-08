@@ -45,8 +45,6 @@ jobs:
           response=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $api_url)
           workflow_id=$(echo "$response" | jq -r --arg workflow_name "$workflow_name" '.workflows[] | select(.name == $workflow_name) | .id')
           echo "Workflow ID: $workflow_id" # Debug print
-          workflow_id=$(echo "")
-          echo "Workflow ID: $workflow_id" # Debug print
           npx specmatic-insights-github-build-reporter \
             --org-id ${{ secrets.SPECMATIC_ORG_ID }} \
             --branch-ref ${{ github.ref }} \
