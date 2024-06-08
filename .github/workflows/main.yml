@@ -35,8 +35,8 @@ jobs:
         run: npm ci
       - name: Run UI Component Test
         run: npm test -- --watchAll=false
-      - name: Get Workflow Definition ID
-        id: get_workflow_id
+
+      - name: Run Specmatic Insights Github Build Reporter
         env:
           GITHUB_TOKEN: ${{ secrets.SPECMATIC_INSIGHTS_ACCESS_TOKEN }}
         run: |
@@ -45,10 +45,8 @@ jobs:
           response=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $api_url)
           workflow_id=$(echo "$response" | jq -r --arg workflow_name "$workflow_name" '.workflows[] | select(.name == $workflow_name) | .id')
           echo "Workflow ID: $workflow_id" # Debug print
-          echo "workflow_id=$workflow_id" >> "$GITHUB_OUTPUT"
-
-      - name: Run Specmatic Insights Github Build Reporter
-        run: |
+          workflow_id=$(echo "")
+          echo "Workflow ID: $workflow_id" # Debug print
           npx specmatic-insights-github-build-reporter \
             --org-id ${{ secrets.SPECMATIC_ORG_ID }} \
             --branch-ref ${{ github.ref }} \
