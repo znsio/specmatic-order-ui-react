@@ -8,7 +8,7 @@ const App = ({ type }) => {
         const apiCall = async () => {
             try {
                 const response = await axios.get(
-                    process.env.REACT_APP_API_URL + "/findAvailableProducts?type=" + type,
+                    `${process.env.REACT_APP_API_URL}/findAvailableProducts?type=${type}`,
                     {
                         timeout: 1000,
                         headers: {
@@ -22,7 +22,7 @@ const App = ({ type }) => {
             }
         }
         apiCall()
-    }, [])
+    }, [type])
     return (
         <div>
             <h1>Gadgets</h1>
