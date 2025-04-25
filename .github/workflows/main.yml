@@ -46,7 +46,6 @@ jobs:
           workflow_id=$(echo "$response" | jq -r --arg workflow_name "$workflow_name" '.workflows[] | select(.name == $workflow_name) | .id')
           echo "Workflow ID: $workflow_id" # Debug print
           npx specmatic-insights-github-build-reporter \
-            --specmatic-insights-host https://9512-2405-201-100b-2115-1df-cac-c5eb-9083.ngrok-free.app \
             --org-id ${{ secrets.SPECMATIC_ORG_ID }} \
             --branch-ref ${{ github.ref }} \
             --branch-name ${{ github.ref_name }} \
